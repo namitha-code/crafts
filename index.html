@@ -1,110 +1,376 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>DIY Arts & Crafts Studio</title>
 </head>
 
 <body bgcolor="#F5F1E8">
 
-<h2>Workshop Registration</h2>
+    <!-- MARQUEE -->
+    <marquee bgcolor="#6B8F71" scrollamount="6">
+        <font color="white" face="Verdana">
+         | Welcome to DIY Arts & Crafts Studio | Create • Learn • Inspire | Register for our next workshop today! |
+        </font>
+    </marquee>
 
-<form id="myForm">
-    <input type="text" name="fullname" placeholder="Full Name" required><br><br>
-    <input type="email" name="email" placeholder="Email" required><br><br>
+    <br>
 
-    <select name="age">
-        <option>Under 15</option>
-        <option>15 - 20</option>
-        <option>21 - 35</option>
-        <option>36+</option>
-    </select><br><br>
-
-    <input type="radio" name="session" value="Morning">Morning
-    <input type="radio" name="session" value="Afternoon">Afternoon
-    <input type="radio" name="session" value="Evening">Evening
-    <br><br>
-
-    <textarea name="comments" placeholder="Comments"></textarea><br><br>
-
-    <button type="submit">Submit</button>
-</form>
-
-<hr>
-
-<h2>Submitted Data</h2>
-<button onclick="loadData()">Refresh</button>
-
-<table border="1" width="100%" id="dataTable">
+    <!-- HEADER -->
+    <table width="100%" bgcolor="#6B8F71" cellpadding="20">
     <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Age</th>
-        <th>Session</th>
-        <th>Comments</th>
-        <th>Action</th>
+        <td align="center">
+
+            <font face="Brush Script MT" color="white" size="7">
+                <h1>DIY Arts & Crafts Studio</h1>
+            </font>
+
+            <font face="Verdana" color="#F5F1E8" size="4">
+                <i>Transform simple materials into beautiful handmade creations.</i>
+            </font>
+
+            <br><br>
+
+            <img src="frame.jpg"
+                alt="Arts and Crafts"
+                width="700"
+                height="700">
+
+            <br><br>
+
+            <font face="Verdana" color="white">
+                <h2>Handmade Decorative Photo Frame Project</h2>
+            </font>
+
+        </td>
     </tr>
 </table>
 
-<script>
-const API_URL = "https://script.google.com/macros/s/AKfycbzjRZwQ1uw3dqDEXFoSBNdREz5L12rUsrxM9K8qoLhCvCuN_xvrqFAnUVTLs-LAxoTpWw/exec";
+    <!-- INTRODUCTION -->
+    <font face="Verdana" color="#5F7161">
+        <h3>Project Overview</h3>
+    </font>
 
-document.getElementById("myForm").addEventListener("submit", async function(e) {
+    <font face="Arial" color="#6D5D4B" size="4">
+        Create a personalized decorative photo frame using recycled cardboard,
+        paints, and decorative accessories. This beginner-friendly project is
+        perfect for improving creativity while producing a beautiful handmade item.
+    </font>
+
+    <br><br>
+
+    <!-- MATERIALS LIST -->
+    
+    <table width="100%" bgcolor="#FFEBCD" cellpadding="10">
+    <tr>
+        <td align="left">
+          <font face="Verdana" color="#556B2F">
+        <h3>Materials Required</h3>
+    </font>
+    <ul>
+        <li>Cardboard Sheet</li>
+        <li>Acrylic Paints</li>
+        <li>Glue</li>
+        <li>Decorative Beads</li>
+        <li>Colored Paper</li>
+        <li>Scissors</li>
+        <li>Photograph</li>
+    </ul>
+    <br>
+
+    </td>
+    </tr>
+</table>
+
+    
+    <!-- STEP BY STEP GUIDE -->
+    <table width="100%" bgcolor="#F3F3DC" cellpadding="10">
+    <tr>
+        <td align="left">
+    <font face="Verdana" color="#556B2F">
+        <h3>Step-by-Step Craft Guide</h3>
+    </font>
+
+    <ol>
+        <li>
+            <font color="#8B7355">
+                Draw and cut the frame shape from cardboard.
+            </font>
+        </li>
+
+        <li>
+            <font color="#6B8F71">
+                Paint the cardboard and allow it to dry completely.
+            </font>
+        </li>
+
+        <li>
+            <font color="#A67B5B">
+                Decorate the borders using beads and colored paper.
+            </font>
+        </li>
+
+        <li>
+            <font color="#556B2F">
+                Attach the photograph securely to the back.
+            </font>
+        </li>
+
+        <li>
+            <font color="#7C6756">
+                Add final embellishments and display your masterpiece.
+            </font>
+        </li>
+    </ol>
+
+    <br>
+    </td>
+    </tr>
+</table>
+
+    <!-- TIPS SECTION -->
+    <table width="100%" bgcolor="#FEFEDC" cellpadding="10">
+    <tr>
+        <td align="left">
+    <font face="Verdana" color="#556B2F">
+        <h3>Creative Crafting Tips</h3>
+    </font>
+
+    <p>
+        <font color="#6B8F71">
+            <b>Tip 1:</b> Use recycled materials whenever possible.
+        </font>
+    </p>
+
+    <p>
+        <font color="#8B7355">
+            <b>Tip 2:</b> Allow paint layers to dry before decorating.
+        </font>
+    </p>
+
+    <p>
+        <font color="#556B2F">
+            <b>Tip 3:</b> Experiment with different color combinations.
+        </font>
+    </p>
+
+    <br>
+    </td>
+    </tr>
+</table>
+
+    <!-- EXTERNAL LINK -->
+    <font face="Verdana" color="#556B2F">
+        <h3>Learn More Craft Ideas</h3>
+    </font>
+
+    <a href="https://www.wikihow.com/Make-Crafts" target="_blank">
+        Visit WikiHow Craft Tutorials
+    </a>
+
+    <br><br>
+
+    <!-- TABLE -->
+    <font face="Verdana" color="#556B2F">
+        <h3>Inventory Cost Table</h3>
+    </font>
+
+    <table border="1" cellpadding="10" cellspacing="0" width="70%">
+        <tr bgcolor="#AAB99A">
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Cost (₹)</th>
+        </tr>
+
+        <tr>
+            <td>Cardboard Sheet</td>
+            <td>1</td>
+            <td>20</td>
+        </tr>
+
+        <tr>
+            <td>Acrylic Paints</td>
+            <td>1 Set</td>
+            <td>120</td>
+        </tr>
+
+        <tr>
+            <td>Glue</td>
+            <td>1</td>
+            <td>30</td>
+        </tr>
+
+        <tr>
+            <td>Decorative Beads</td>
+            <td>1 Pack</td>
+            <td>50</td>
+        </tr>
+
+        <tr>
+            <td>Colored Paper</td>
+            <td>5 Sheets</td>
+            <td>25</td>
+        </tr>
+
+        <tr bgcolor="#F0EAD6">
+            <th colspan="2">Total Estimated Cost</th>
+            <th>245</th>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <!-- FORM -->
+    <table width="100%" bgcolor="#FFEFD5" cellpadding="20">
+    <tr>
+        <td align="left">
+
+    <font face="Verdana" color="#556B2F">
+        <h3>Workshop Registration Form</h3>
+    </font>
+
+    <form id="registrationForm">
+
+        <p>
+            Full Name:
+            <input type="text" id="fullname">
+        </p>
+
+        <p>
+            Email Address:
+            <input type="text" id="email">
+        </p>
+
+        <p>
+            Age Group:
+            <select id="age">
+                <option>Under 15</option>
+                <option>15 - 20</option>
+                <option>21 - 35</option>
+                <option>36+</option>
+            </select>
+        </p>
+
+        <p>
+            Preferred Session:
+            <br>
+
+            <input type="radio" name="session" value="Morning">
+            Morning
+
+            <input type="radio" name="session" value="Afternoon">
+            Afternoon
+
+            <input type="radio" name="session" value="Evening">
+            Evening
+        </p>
+
+        <p>
+            Craft Interests:
+            <br>
+
+            <input type="checkbox" name="interest" value="Paper Crafts">
+            Paper Crafts
+
+            <input type="checkbox" name="interest" value="Painting">
+            Painting
+
+            <input type="checkbox" name="interest" value="DIY Decor">
+            DIY Decor
+        </p>
+
+        <p>
+            Additional Comments:
+            <br>
+            <textarea id="comments" rows="5" cols="40"></textarea>
+        </p>
+
+        <input type="submit" value="Register Now">
+
+        <input type="reset" value="Clear Form">
+
+    </form>
+
+    <br>
+
+    <hr color="#6B8F71">
+        </td>
+    </tr>
+    </table>
+
+    <table width="100%" bgcolor="#6B8F71" cellpadding="20">
+    <tr>
+        <td align="center">
+
+        <font face="Brush Script MT" color="white" size="4">
+            <b>DIY Arts & Crafts Studio</b>
+        </font>
+
+        <br>
+
+        <font face="Verdana" color="#556B2F">
+            Crafting creativity, one project at a time.
+        </font>
+        </td>
+    </tr>
+    </table>
+<script>
+
+document.getElementById("registrationForm")
+.addEventListener("submit", function(e){
+
     e.preventDefault();
 
-    const formData = new FormData(this);
+    const data = {
 
-    const data = Object.fromEntries(formData.entries());
+        fullname: document.getElementById("fullname").value,
 
-    await fetch(API_URL, {
+        email: document.getElementById("email").value,
+
+        age: document.getElementById("age").value,
+
+        session:
+            document.querySelector('input[name="session"]:checked')?.value || "",
+
+        interests:
+            Array.from(
+                document.querySelectorAll('input[name="interest"]:checked')
+            ).map(x => x.value).join(", "),
+
+        comments:
+            document.getElementById("comments").value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycby25tqlnnbN0HABudA9ORbDcHbxRxF00zKl_wOovFquxpXf78VNJCVRXTIqS6n2-TNnyA/exec", {
+
         method: "POST",
+
         body: JSON.stringify(data)
+
+    })
+
+    .then(response => response.text())
+
+    .then(result => {
+
+        alert("Registration Successful!");
+
+        document.getElementById("registrationForm").reset();
+
+    })
+
+    .catch(error => {
+
+        alert("Error submitting form");
+
+        console.log(error);
+
     });
 
-    alert("Submitted!");
-    loadData();
 });
 
-async function loadData() {
-    const res = await fetch(API_URL);
-    const data = await res.json();
-
-    const table = document.getElementById("dataTable");
-
-    table.innerHTML = `
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Age</th>
-            <th>Session</th>
-            <th>Comments</th>
-            <th>Action</th>
-        </tr>
-    `;
-
-    data.forEach(row => {
-        table.innerHTML += `
-            <tr>
-                <td>${row.fullname}</td>
-                <td>${row.email}</td>
-                <td>${row.age}</td>
-                <td>${row.session}</td>
-                <td>${row.comments}</td>
-                <td>
-                    <button onclick="deleteRow('${row.id}')">Delete</button>
-                </td>
-            </tr>
-        `;
-    });
-}
-
-async function deleteRow(id) {
-    await fetch(API_URL + "?id=" + id);
-    alert("Deleted!");
-    loadData();
-}
-
-loadData();
 </script>
 
 </body>
+
 </html>
