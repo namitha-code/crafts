@@ -229,67 +229,66 @@
         <h3>Workshop Registration Form</h3>
     </font>
 
-    <form id="registrationForm">
+  <form id="registrationForm">
 
-        <p>
-            Full Name:
-            <input type="text" id="fullname">
-        </p>
+    <p>
+        Full Name:
+        <input type="text" id="fullname" required>
+    </p>
 
-        <p>
-            Email Address:
-            <input type="text" id="email">
-        </p>
+    <p>
+        Email Address:
+        <input type="email" id="email" required>
+    </p>
 
-        <p>
-            Age Group:
-            <select id="age">
-                <option>Under 15</option>
-                <option>15 - 20</option>
-                <option>21 - 35</option>
-                <option>36+</option>
-            </select>
-        </p>
+    <p>
+        Age Group:
+        <select id="age">
+            <option>Under 15</option>
+            <option>15 - 20</option>
+            <option>21 - 35</option>
+            <option>36+</option>
+        </select>
+    </p>
 
-        <p>
-            Preferred Session:
-            <br>
+    <p>
+        Preferred Session:
+        <br>
 
-            <input type="radio" id="session">
-            Morning
+        <input type="radio" name="session" value="Morning">
+        Morning
 
-            <input type="radio" id="session">
-            Afternoon
+        <input type="radio" name="session" value="Afternoon">
+        Afternoon
 
-            <input type="radio" id="session">
-            Evening
-        </p>
+        <input type="radio" name="session" value="Evening">
+        Evening
+    </p>
 
-        <p>
-            Craft Interests:
-            <br>
+    <p>
+        Craft Interests:
+        <br>
 
-            <input type="checkbox">
-            Paper Crafts
+        <input type="checkbox" name="interest" value="Paper Crafts">
+        Paper Crafts
 
-            <input type="checkbox">
-            Painting
+        <input type="checkbox" name="interest" value="Painting">
+        Painting
 
-            <input type="checkbox">
-            DIY Decor
-        </p>
+        <input type="checkbox" name="interest" value="DIY Decor">
+        DIY Decor
+    </p>
 
-        <p>
-            Additional Comments:
-            <br>
-            <textarea rows="5" cols="40"></textarea>
-        </p>
+    <p>
+        Additional Comments:
+        <br>
+        <textarea id="comments" rows="5" cols="40"></textarea>
+    </p>
 
-        <input type="submit" value="Register Now">
+    <input type="submit" value="Register Now">
+    <input type="reset" value="Clear Form">
 
-        <input type="reset" value="Clear Form">
-
-    </form>
+</form>
 
     <br>
 
@@ -323,15 +322,15 @@
             <th>Email</th>
             <th>Age</th>
             <th>Session</th>
+            <th>Interests</th>
+            <th>Comments</th>
             <th>Action</th>
         </tr>
     </thead>
 
     <tbody id="userTable">
-
     </tbody>
 </table>
-
 <script>
 
 const API_URL =
@@ -345,138 +344,168 @@ document
 
     e.preventDefault();
 
+    const selectedSession =
+    document.querySelector('input[name="session"]:checked');
+
+    const interests =
+    Array.from(
+        document.querySelectorAll(
+            'input[name="interest"]:checked'
+        )
+    ).map(cb => cb.value);
+
     const data = {
 
-      action:
-      editingId ? "update" : "add",
+        action: editingId ? "update" : "add",
 
-      id: editingId,
+        id: editingId,
 
-      fullname:
-      document.getElementById("fullname").value,
+        fullname:
+        document.getElementById("fullname").value,
 
-      email:
-      document.getElementById("email").value,
+        email:
+        document.getElementById("email").value,
 
-      age:
-      document.getElementById("age").value,
+        age:
+        document.getElementById("age").value,
 
-      session:"",
-      interests:"",
-      comments:""
+        session:
+        selectedSession ? selectedSession.value : "",
+
+        interests:
+        interests.join(", "),
+
+        comments:
+        document.getElementById("comments").value
     };
 
     await fetch(API_URL,{
-      method:"POST",
-      body:JSON.stringify(data)
+        method:"POST",
+        body:JSON.stringify(data)
     });
 
     alert("Saved Successfully");
 
     editingId = null;
 
-    loadUsers();
-
     this.reset();
+
+    loadUsers();
 });
 
 async function loadUsers(){
 
-    const response =
-      await fetch(API_URL);
+    const response = await fetch(API_URL);
 
-    const users =
-      await response.json();
+    const users = await response.json();
 
     let html = "";
 
     users.forEach(user => {
 
-      html += `
-      <tr>
-          <td>${user[1]}</td>
-          <td>${user[2]}</td>
-          <td>${user[3]}</td>
-          <td>${user[4]}</td>
+        html += `
+        <tr>
 
-          <td>
+            <td>${user[1] || ""}</td>
+            <td>${user[2] || ""}</td>
+            <td>${user[3] || ""}</td>
+            <td>${user[4] || ""}</td>
+            <td>${user[5] || ""}</td>
+            <td>${user[6] || ""}</td>
 
-          <button
-          onclick="editUser(
-            '${user[0]}',
-            '${user[1]}',
-            '${user[2]}',
-            '${user[3]}'
-          )">
+            <td>
 
-          Edit
+                <button
+                onclick="editUser(
+                    '${user[0]}',
+                    '${user[1]}',
+                    '${user[2]}',
+                    '${user[3]}',
+                    '${user[4]}',
+                    '${user[5]}',
+                    \`${user[6] || ""}\`
+                )">
 
-          </button>
+                Edit
 
-          <button
-          onclick="deleteUser(
-            '${user[0]}'
-          )">
+                </button>
 
-          Delete
+                <button
+                onclick="deleteUser(
+                    '${user[0]}'
+                )">
 
-          </button>
+                Delete
 
-          </td>
+                </button>
 
-      </tr>
-      `;
+            </td>
+
+        </tr>
+        `;
     });
 
     document
-      .getElementById("userTable")
-      .innerHTML = html;
+    .getElementById("userTable")
+    .innerHTML = html;
 }
 
 function editUser(
-  id,
-  fullname,
-  email,
-  age
+    id,
+    fullname,
+    email,
+    age,
+    session,
+    interests,
+    comments
 ){
 
     editingId = id;
 
-    document
-      .getElementById("fullname")
-      .value = fullname;
+    document.getElementById("fullname").value = fullname;
+    document.getElementById("email").value = email;
+    document.getElementById("age").value = age;
+    document.getElementById("comments").value = comments;
 
     document
-      .getElementById("email")
-      .value = email;
+    .querySelectorAll('input[name="session"]')
+    .forEach(radio => {
+        radio.checked = (radio.value === session);
+    });
 
     document
-      .getElementById("age")
-      .value = age;
+    .querySelectorAll('input[name="interest"]')
+    .forEach(checkbox => {
+
+        checkbox.checked =
+        interests.includes(checkbox.value);
+
+    });
 }
 
 async function deleteUser(id){
 
-  if(!confirm("Delete this record?"))
-    return;
+    if(!confirm("Delete this record?"))
+        return;
 
-  await fetch(API_URL,{
+    await fetch(API_URL,{
 
-    method:"POST",
+        method:"POST",
 
-    body:JSON.stringify({
+        body:JSON.stringify({
 
-      action:"delete",
+            action:"delete",
 
-      id:id
+            id:id
 
-    })
+        })
+    });
 
-  });
-
-  loadUsers();
+    loadUsers();
 }
+
 loadUsers();
+
 </script>
 </body>
 
