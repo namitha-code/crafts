@@ -4,70 +4,392 @@
 <head>
     <title>DIY Arts & Crafts Studio</title>
     <style>
-        /* Page Background */
-        body {
-            background-color: #F4F5DC; 
-            font-family: "Georgia", Arial, sans-serif;
-            font-size: 12px;
-            text-align: justify;
-            margin: 20px;
-        }
-
-        /* Main Headings */
-        h1 {
-    font-family: "Brush Script MT", "Comic Sans MS", cursive;
-    font-size: 40px;
-    color: #ffffff;
-    text-align: center;
-    
+        /* ==========================================
+   GENERAL PAGE STYLING
+========================================== */
+body{
+    background:#F4F5DC;
+    font-family:Arial, Helvetica, sans-serif;
+    margin:25px;
+    color:#444;
+    line-height:1.7;
 }
 
-        /* Section Headings */
-        h2 {
-            font-family: Georgia, serif;
-            font-size: 20px;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        /* Sub Headings */
-        h3 {
-            font-family: Verdana, sans-serif;
-            font-size: 14px;
-            color: #556B2F;
-            text-align: justify;
-        }
-
-        /* Content */
-        p, li, td, label, input, select, textarea {
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            text-align: justify;
-        }
-
-        /* Table Headers */
-        th {
-            font-family: Verdana, sans-serif;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        /* Table Content */
-        td {
-            font-size: 12px;
-        }
-
-        /* Links */
-        a { color: #8B4513; }
-a:hover { color: #FF8C00; }
-
-.header {
-    text-align: center;
-    
+/* Smooth scrolling */
+html{
+    scroll-behavior:smooth;
 }
-img {
-    display: block;
-    margin: 0 auto;
+
+/* ==========================================
+   MAIN HEADING
+========================================== */
+h1{
+    font-family:"Brush Script MT", cursive;
+    font-size:48px;
+    color:white;
+    margin-bottom:10px;
+    letter-spacing:2px;
+}
+
+/* Section headings */
+h2{
+    font-size:28px;
+    color:white;
+    margin-top:10px;
+}
+
+/* Small headings */
+h3{
+    color:#4E6B3D;
+    font-size:22px;
+    border-left:6px solid #6B8F71;
+    padding-left:10px;
+    margin-top:25px;
+}
+
+/* ==========================================
+   PARAGRAPHS
+========================================== */
+p{
+    font-size:15px;
+    color:#555;
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+img{
+
+    /* Center image */
+    display:block;
+    margin:auto;
+
+    /* Responsive image */
+    max-width:100%;
+    height:auto;
+
+    /* Rounded corners */
+    border-radius:20px;
+
+    /* Soft shadow */
+    box-shadow:0px 8px 20px rgba(0,0,0,.25);
+
+    transition:.4s;
+}
+
+/* Zoom effect */
+img:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* ==========================================
+   TABLES
+========================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin:25px 0;
+
+}
+
+/* All table cells */
+
+td,th{
+
+    padding:12px;
+
+}
+
+/* Inventory & participant table */
+
+table[border="1"]{
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0px 5px 15px rgba(0,0,0,.12);
+
+}
+
+/* Header row */
+
+th{
+
+    background:#6B8F71;
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+/* Alternate row color */
+
+tr:nth-child(even){
+
+    background:#F7F7F7;
+
+}
+
+/* Row hover */
+
+tr:hover{
+
+    background:#EEF6E9;
+
+}
+
+/* ==========================================
+   LINKS
+========================================== */
+
+/* ==========================================
+   LINKS
+========================================== */
+
+/* Normal (unvisited) link */
+a{
+    color:#8B4513;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;      /* Hand cursor */
+    transition:0.3s;
+}
+
+/* Mouse over the link */
+a:hover{
+    color:#FF9800;
+    text-decoration:underline;
+}
+
+/* After the link has been clicked */
+a:visited{
+    color:#6A5ACD;        /* Purple-ish */
+}
+
+/* While the link is being clicked */
+a:active{
+    color:#FF0000;        /* Red */
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+form{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0px 5px 18px rgba(0,0,0,.15);
+
+}
+
+/* Input fields */
+
+input[type=text],
+input[type=email],
+select,
+textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:6px;
+
+    margin-bottom:18px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    box-sizing:border-box;
+
+    transition:.3s;
+
+}
+
+/* Focus effect */
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    outline:none;
+
+    border:2px solid #6B8F71;
+
+    box-shadow:0px 0px 8px rgba(107,143,113,.3);
+
+}
+
+/* Radio & checkbox spacing */
+
+input[type=radio],
+input[type=checkbox]{
+
+    margin-right:5px;
+    margin-left:10px;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+input[type=submit],
+input[type=reset],
+button{
+
+    background:#6B8F71;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+/* Hover animation */
+
+input[type=submit]:hover,
+input[type=reset]:hover,
+button:hover{
+
+    background:#56755B;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   MARQUEE
+========================================== */
+
+marquee{
+
+    border-radius:8px;
+
+    padding:10px;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================
+   SECTION TABLES
+   (Overview, Materials, Steps, Tips)
+========================================== */
+
+table[bgcolor]{
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0px 4px 12px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================
+   LISTS
+========================================== */
+
+ul li,
+ol li{
+
+    margin-bottom:10px;
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+   HORIZONTAL LINE
+========================================== */
+
+hr{
+
+    border:none;
+
+    height:2px;
+
+    background:#6B8F71;
+
+    margin-top:25px;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+font[size="4"]{
+
+    font-size:18px;
+
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    body{
+
+        margin:10px;
+
+    }
+
+    h1{
+
+        font-size:36px;
+
+    }
+
+    h2{
+
+        font-size:22px;
+
+    }
+
+    h3{
+
+        font-size:20px;
+
+    }
+
+    table{
+
+        font-size:13px;
+
+    }
+
 }
     </style>
 </head>
